@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import JSZip from 'jszip';
 import { webrtcManager } from '../services/webrtcManager';
@@ -81,7 +82,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'nexuslan-builder-kit.zip';
+      a.download = 'winerylan-builder-kit.zip';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -99,8 +100,8 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const handleDownloadExe = () => {
      // In a real app, this points to the file uploaded by admin
      const link = document.createElement('a');
-     link.href = '/download/nexuslan.exe'; // The path we told admin to upload to
-     link.download = 'nexuslan.exe';
+     link.href = '/download/winerylan.exe'; // The path we told admin to upload to
+     link.download = 'winerylan.exe';
      document.body.appendChild(link);
      link.click();
      document.body.removeChild(link);

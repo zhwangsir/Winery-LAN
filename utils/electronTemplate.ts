@@ -1,8 +1,8 @@
 
 export const PACKAGE_JSON = `{
-  "name": "nexuslan-client",
+  "name": "winerylan-client",
   "version": "1.0.0",
-  "description": "NexusLAN Desktop Client",
+  "description": "WineryLAN Desktop Client",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -10,7 +10,7 @@ export const PACKAGE_JSON = `{
     "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "NexusLAN",
+  "author": "WineryLAN",
   "license": "MIT",
   "devDependencies": {
     "electron": "^28.0.0",
@@ -30,7 +30,7 @@ export const PACKAGE_JSON = `{
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "nexuslan_client"
+            "name": "winerylan_client"
           }
         },
         {
@@ -104,7 +104,7 @@ const createTray = () => {
       app.quit();
     }}
   ]);
-  tray.setToolTip('NexusLAN Client');
+  tray.setToolTip('WineryLAN Client');
   tray.setContextMenu(contextMenu);
   
   tray.on('click', () => {
@@ -130,7 +130,7 @@ ipcMain.handle('connect-network', async (event, username) => {
     isConnected = true;
     socket.emit('join-network', { username: agentName });
     mainWindow.webContents.send('status-update', { status: 'connected', id: socket.id });
-    mainWindow.webContents.send('log', { type: 'success', msg: 'Connected to NexusLAN Server' });
+    mainWindow.webContents.send('log', { type: 'success', msg: 'Connected to WineryLAN Server' });
   });
 
   socket.on('disconnect', () => {
@@ -189,7 +189,7 @@ contextBridge.exposeInMainWorld('api', {
 export const INDEX_HTML = `<!DOCTYPE html>
 <html class="dark">
 <head>
-  <title>NexusLAN</title>
+  <title>WineryLAN</title>
   <!-- Using Tailwind via CDN for simplicity in this generated bundle -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -208,7 +208,7 @@ export const INDEX_HTML = `<!DOCTYPE html>
   
   <!-- Title Bar -->
   <div class="h-8 bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-400 draggable border-b border-slate-700">
-    NEXUS LAN CLIENT
+    WINERY LAN CLIENT
   </div>
 
   <!-- Main Content -->
@@ -348,7 +348,7 @@ window.api.onLog((data) => {
 });
 `;
 
-export const ELECTRON_README = `# NexusLAN Electron Client
+export const ELECTRON_README = `# WineryLAN Electron Client
 
 This is the source code for the Desktop GUI client.
 
@@ -367,7 +367,7 @@ The output files (installers and executables) will be in the \`out/\` folder.
 `;
 
 export const BUILD_BAT = `@echo off
-echo Building NexusLAN Client...
+echo Building WineryLAN Client...
 echo.
 
 IF NOT EXIST "node_modules" (

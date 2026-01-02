@@ -1,3 +1,4 @@
+
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -74,14 +75,14 @@ io.on('connection', (socket) => {
   // User joins the virtual network
   socket.on('join-network', ({ username }) => {
     activePeers.set(socket.id, { id: socket.id, name: username, ip: socket.handshake.address });
-    socket.join('nexus-lan');
+    socket.join('winery-lan');
     
     // Broadcast list of peers to the new user
     const peersList = Array.from(activePeers.values()).filter(p => p.id !== socket.id);
     socket.emit('peer-list', peersList);
     
     // Notify others
-    socket.to('nexus-lan').emit('peer-joined', { id: socket.id, name: username });
+    socket.to('winery-lan').emit('peer-joined', { id: socket.id, name: username });
     console.log(`[NET] ${username} joined the mesh.`);
   });
 
@@ -102,12 +103,12 @@ io.on('connection', (socket) => {
     const peer = activePeers.get(socket.id);
     if (peer) {
       console.log(`[NET] ${peer.name} disconnected.`);
-      socket.to('nexus-lan').emit('peer-left', { id: socket.id });
+      socket.to('winery-lan').emit('peer-left', { id: socket.id });
       activePeers.delete(socket.id);
     }
   });
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`NexusLAN Backend running on port ${PORT}`);
+  console.log(`WineryLAN Backend running on port ${PORT}`);
 });

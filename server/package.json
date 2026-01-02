@@ -1,7 +1,8 @@
+
 {
-  "name": "nexuslan-backend",
+  "name": "winerylan-backend",
   "version": "1.0.0",
-  "description": "Signaling and Auth Server for NexusLAN",
+  "description": "Signaling and Auth Server for WineryLAN",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

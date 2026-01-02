@@ -1,5 +1,6 @@
+
 export const AGENT_CODE = `/**
- * NexusLAN Node.js Client Agent (Optimized)
+ * WineryLAN Node.js Client Agent (Optimized)
  * -----------------------------------------
  * 
  * Features:
@@ -37,7 +38,7 @@ const log = (level, msg, ...rest) => {
 };
 
 console.log('------------------------------------------------');
-console.log('   NexusLAN Edge Agent v2.0');
+console.log('   WineryLAN Edge Agent v2.0');
 console.log('------------------------------------------------');
 console.log('   Server  :', CONFIG.SERVER_URL);
 console.log('   Device  :', CONFIG.AGENT_NAME);
@@ -114,13 +115,13 @@ process.on('SIGINT', () => {
 `;
 
 export const PACKAGE_JSON = `{
-  "name": "nexuslan-agent",
+  "name": "winerylan-agent",
   "version": "2.0.0",
-  "description": "NexusLAN Edge Agent",
-  "main": "nexus-agent.js",
-  "bin": "nexus-agent.js",
+  "description": "WineryLAN Edge Agent",
+  "main": "winery-agent.js",
+  "bin": "winery-agent.js",
   "scripts": {
-    "start": "node nexus-agent.js",
+    "start": "node winery-agent.js",
     "build": "pkg . --targets node18-win-x64,node18-linux-x64,node18-macos-x64 --out-path dist"
   },
   "dependencies": {
@@ -132,9 +133,9 @@ export const PACKAGE_JSON = `{
   }
 }`;
 
-export const README_MD = `# NexusLAN Client Agent
+export const README_MD = `# WineryLAN Client Agent
 
-This bundle contains the source code for the NexusLAN Agent.
+This bundle contains the source code for the WineryLAN Agent.
 You can run it directly with Node.js or build it into a standalone executable (.exe).
 
 ## Option 1: Run with Node.js (Recommended for Dev)
@@ -144,7 +145,7 @@ You can run it directly with Node.js or build it into a standalone executable (.
 3. Install dependencies:
    \`npm install\`
 4. Run the agent:
-   \`node nexus-agent.js\`
+   \`node winery-agent.js\`
 
 ## Option 2: Build Standalone Executable (.exe)
 
@@ -159,13 +160,13 @@ You can package this script into a single .exe file that runs on computers witho
    \`npm run build\`
 
 The executable files will be created in the \`dist/\` folder:
-- \`nexuslan-agent-win.exe\` (Windows)
-- \`nexuslan-agent-linux\` (Linux)
-- \`nexuslan-agent-macos\` (macOS)
+- \`winerylan-agent-win.exe\` (Windows)
+- \`winerylan-agent-linux\` (Linux)
+- \`winerylan-agent-macos\` (macOS)
 
 ## Usage
 
 Run the executable normally, or with flags:
 
-\`./nexuslan-agent-win.exe --server http://8.140.222.24:3000 --name MyGameServer\`
+\`./winerylan-agent-win.exe --server http://8.140.222.24:3000 --name MyGameServer\`
 `;

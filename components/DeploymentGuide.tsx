@@ -87,18 +87,18 @@ export const SERVER_CONFIG = {
   API_URL: 'http://${PLACEHOLDER_IP}:3000',
   SOCKET_URL: 'http://${PLACEHOLDER_IP}:3000',
   TURN_SERVER: 'turn:${PLACEHOLDER_IP}:3478',
-  TURN_USER: 'nexus',
-  TURN_PASS: 'nexus_secret_password'
+  TURN_USER: 'winery',
+  TURN_PASS: 'winery_secret_password'
 };`,
-    backend: `# 1. Upload the 'server' folder to /www/wwwroot/nexuslan-backend
-cd /www/wwwroot/nexuslan-backend
+    backend: `# 1. Upload the 'server' folder to /www/wwwroot/winerylan-backend
+cd /www/wwwroot/winerylan-backend
 
 # 2. Install Dependencies
 npm install
 
 # 3. Start with PM2
 npm install -g pm2
-pm2 start index.js --name nexus-server
+pm2 start index.js --name winery-server
 pm2 save
 pm2 startup`,
     coturn: `# Replace ${PLACEHOLDER_IP} with your Public IP
@@ -107,20 +107,20 @@ docker run -d --network=host --name=coturn instrumentisto/coturn \\
   --min-port=49152 --max-port=65535 \\
   --realm=${PLACEHOLDER_IP} --listening-port=3478 \\
   --external-ip=${PLACEHOLDER_IP} \\
-  --user=nexus:nexus_secret_password \\
+  --user=winery:winery_secret_password \\
   --lt-cred-mech`,
     build: `# On your LOCAL machine:
 npm run build
 
 # Then upload the 'dist' folder content to:
-# /www/wwwroot/nexuslan-frontend`,
+# /www/wwwroot/winerylan-frontend`,
     nginx: `server {
     listen 80;
     server_name ${PLACEHOLDER_IP} _; # Or your domain
 
     # Frontend Static Files
     location / {
-        root /www/wwwroot/nexuslan-frontend;
+        root /www/wwwroot/winerylan-frontend;
         index index.html;
         try_files $uri $uri/ /index.html;
     }

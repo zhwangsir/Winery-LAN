@@ -6,7 +6,7 @@ export type Language = 'en' | 'zh';
 const translations = {
   en: {
     // Auth & App
-    appTitle: "NexusLAN",
+    appTitle: "WineryLAN",
     tagline: "Secure P2P Virtual Network",
     loginTitle: "Secure Login",
     registerTitle: "Create Account",
@@ -164,7 +164,7 @@ const translations = {
   },
   zh: {
     // Auth & App
-    appTitle: "NexusLAN",
+    appTitle: "WineryLAN",
     tagline: "安全的 P2P 虚拟网络",
     loginTitle: "安全登录",
     registerTitle: "创建账户",

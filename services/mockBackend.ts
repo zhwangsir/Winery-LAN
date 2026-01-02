@@ -107,7 +107,7 @@ class MockBackendService {
       lastLogin: new Date().toISOString(),
       avatar: undefined,
       bio: 'New member of the mesh.',
-      email: `${username}@nexuslan.local`
+      email: `${username}@winerylan.local`
     };
 
     this.users.set(username, newUser);
@@ -321,7 +321,7 @@ class MockBackendService {
     
     // Simulate some outputs
     if (cmd === 'ls' || cmd === 'dir') {
-        return "Desktop\nDocuments\nDownloads\nnexus_agent.exe\nconfig.json\nsecret_plans.txt";
+        return "Desktop\nDocuments\nDownloads\nwinery_agent.exe\nconfig.json\nsecret_plans.txt";
     }
     if (cmd === 'whoami') {
         return "root";
@@ -330,10 +330,10 @@ class MockBackendService {
         return "eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\n      inet 192.168.1.105  netmask 255.255.255.0  broadcast 192.168.1.255\n      ether 00:0c:29:4f:8e:3a  txqueuelen 1000  (Ethernet)\n\ntun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500\n      inet 10.24.0.5  netmask 255.255.255.0  destination 10.24.0.5";
     }
     if (cmd === 'ps aux' || cmd === 'top') {
-        return "PID  USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND\n1    root      20   0  168512  12844   9640 S   0.0  0.1   0:03.45 systemd\n104  nexus     20   0  982140  85200  42100 S   2.5  0.8   5:12.30 nexus_agent";
+        return "PID  USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND\n1    root      20   0  168512  12844   9640 S   0.0  0.1   0:03.45 systemd\n104  winery    20   0  982140  85200  42100 S   2.5  0.8   5:12.30 winery_agent";
     }
     if (cmd === 'pwd') {
-        return "/home/nexus/agent";
+        return "/home/winery/agent";
     }
     
     return `bash: ${command}: command not found`;
