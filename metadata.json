@@ -1,0 +1,7 @@
+{
+  "name": "WineryLAN",
+  "description": "A browser-based, zero-config virtual LAN utilizing WebRTC for low-latency P2P gaming and secure resource sharing.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
